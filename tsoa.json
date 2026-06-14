@@ -1,0 +1,36 @@
+{
+    "entryFile": "src/server.ts",
+    "noImplicitAdditionalProperties": "silently-remove-extras",
+    "controllerPathGlobs": [
+        "src/controllers/*Controller.ts"
+    ],
+    "modelPathGlobs": [
+        "src/dtos/**/*.ts"
+    ],
+    "spec": {
+        "outputDirectory": "src/swagger",
+        "specVersion": 3,
+        "basePath": "/api/v1",
+        "securityDefinitions": {
+            "jwt": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "security": [
+            {
+                "jwt": []
+            }
+        ]
+    },
+    "routes": {
+        "basePath": "/api/v1",
+        "routesDir": "src/routes",
+        "authenticationModule": "src/middlewares/authentication.ts"
+    },
+    "ignore": [
+        "src/models/**/*",
+        "src/config/**/*"
+    ]
+}
